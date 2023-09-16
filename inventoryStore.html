@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory-Store</title>
+</head>
+<body>
+    <script>
+
+        // Holding the object in an variable. the price of each item is in USD.
+        let inventoryStoreObject = { 'Apple': 50, 'Balloon': 40, 'Book': 60, 'Banana': 30 };
+
+        // Converting them into array.
+        let arr = Object.entries(inventoryStoreObject);
+        console.log(arr)
+
+ 
+        // Creating an empty object. So, that we can inject the final values of the given object.
+        let finalObjectInventoryStore = {};
+
+        // Using map() method to iterate over the array "arr".
+        arr.map((e) => {
+
+            // Displaying each element in the array in the console.
+            console.log(e)
+
+
+            // Catching the price in USD and converting them into Indian Rupees.
+            let priceInIndianRupees = e[1] * 80;
+
+            // Displaying the price in Indian Rupees in the console.
+            console.log(priceInIndianRupees);
+
+
+            // Adding the key value pairs in our final object.
+            finalObjectInventoryStore[e[0]] = e[1]*80;
+         })
+
+        // Displaying the final object in the console.
+         console.log(finalObjectInventoryStore);
+    </script>
+</body>
+</html>

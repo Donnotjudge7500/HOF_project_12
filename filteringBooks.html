@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtering-Books</title>
+</head>
+<body>
+    <script>
+
+        // List of books.
+        let Books = [
+            {Title : 'book1', author : 'author1', publicationYear : 2015},
+            {Title : 'book2', author : 'author2', publicationYear : 2003},
+            {Title : 'book3', author : 'author3', publicationYear : 2009},
+            {Title : 'book4', author : 'author4', publicationYear : 2011},
+            {Title : 'book5', author : 'author5', publicationYear : 2013},
+            {Title : 'book6', author : 'author6', publicationYear : 2010}
+        ]
+ 
+
+        // Filtering out the books published before 2010.
+        let filteredBooks = Books.filter((e) => e.publicationYear <= 2010)
+        console.log(filteredBooks);
+
+
+        // Creating a new array for the remaining books.
+        let remainingBooks = Books.filter((e) => e.publicationYear > 2010)
+        .map((e) => ({
+            Title : e.Title,
+            author : e.author.toUpperCase() ,
+            publicationYear : e.publicationYear
+        }))
+        console.log(remainingBooks);
+        
+    </script>
+</body>
+</html>

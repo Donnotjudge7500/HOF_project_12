@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                                                   <!-- CSS -->
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <style>
+    
+      @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        html,body
+        {
+            width: 100%;
+            height: 100%;
+            background-color: #695454;
+        }
+
+        .main  
+        {
+            width: 100vw;
+            height: 100vh;
+            display: flex;  
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5%;
+        }
+
+        .main .input
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 5%;
+            width: 100vw;
+            font-size: 3vw;
+        }
+
+        .main .input #inputSection  
+        {
+            font-size: 2.3vw;
+            padding: 10px 20px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+
+        .main .input #inputSection:focus
+        {
+            transform: scale(0.93);
+        } 
+
+
+        button
+        {
+            font-size: 2.3vw;
+            padding: 8px 15px;
+            border: none;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+
+        button:active
+        {
+            transform: scale(0.94);
+        }
+        #displayReversedString
+        {
+            font-size: 2vw;
+            font-weight: 500;
+            height: 50px;
+            width: 50vw;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+        }
+       
+    </style>
+    <title>Reverse-String</title>
+</head>
+<body>
+    <div class="main">
+        <div class="input">
+            <h2>Enter the string :</h2>
+            <input type="text" id="inputSection">
+        </div>
+        <div class="buttons">
+            <button>Reverse</button>
+        </div>
+        <p id="displayReversedString"></p>
+    </div>
+</body>
+
+<script>
+    
+    // Catching the Targets.
+    const input = document.querySelector("#inputSection") 
+    const display = document.querySelector("#displayReversedString")
+    const button = document.querySelector("button")
+
+  
+
+    button.addEventListener('click', () => {
+        setTimeout(() => {
+            
+         // Converting an String to Array using REST method.
+        // let v =  [...input.value];
+
+        // Converting an String to Array using Array.from() method.
+        // let b = Array.from(input.value)
+ 
+        // Converting an String to Array using .split() method.
+        // let c = input.value.split("");
+  
+
+        // Checking wether the inputSection is empty or not.
+        if (input.value === "") {
+            
+            // For displaying in the console.
+            console.log("Please enter a string.")
+            display.innerHTML = "Please enter a string."
+        }
+        else{
+                  
+
+        // Converting the String to Array and then by using .reverse() method we reversed the Array and then by using .join() method we again converted it to a string.
+        let d = input.value.split("").reverse().join("");
+        
+        // For displaying in the console.
+        console.log(d)
+
+        // For displaying on our web page.
+        display.innerHTML = d;
+        display.style.backgroundColor = "#818181";
+        }
+    
+        }, 2000)
+    })
+</script>
+</html>

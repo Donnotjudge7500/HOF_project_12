@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating-Random-Number</title>
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++ -->
+                                                     <!-- CSS -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++ -->
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body
+        {
+            width: 100vw;
+            height: 100vh;
+            background-color: #812222;
+        }
+
+        .main
+        {
+            display: flex;
+            flex-direction: column;
+             align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .main .btn
+        {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2%;
+        }
+
+        .main .btn button
+        {
+            padding: 5px 30px;
+            font-size: 4vw;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 4px 4px 13px 7px #2f3c2f;
+            transition: 0.5s;
+        }
+        .main .btn button:active
+        {
+            transform: scale(0.94) translateX(6px) translateY(6px);
+        }
+        .randomNumber
+        {
+            height: 50px;
+            width: 40vw;
+             margin-left: 10px;
+             border: none;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4vw;
+            font-weight: 700;
+        }
+
+        .main .countingNumber
+        {
+            height: 20vw;
+            width: 15vw;
+            background-color:  transparent; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 7vw;
+            transition: 0.4s;
+            color: #fff;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+          <div class="countingNumber"></div>
+         <div class="btn">
+            <p class="randomNumber"></p>
+            <button>Generate Random Number</button>
+        </div>
+    </div>
+</body>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                                             <!-- JAVASCRIPT -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<script>
+
+    // Catching all the required elements from the document.
+    const btn = document.querySelector("button");
+    const count = document.querySelector(".countingNumber")
+    const randomNum = document.querySelector(".randomNumber")
+
+
+    // Adding an EventListener to perform the desired task.
+    btn.addEventListener("click", () => {
+
+        // The counting time is declared in an variable. And we are using it in setTimeout method.
+        let timerCounting = 3000;
+
+        setTimeout(() => {
+            // For displaying in the console.
+            console.log(Math.random());
+
+
+            // For displaying on our web page.
+            randomNum.innerHTML = Math.ceil(Math.random() * 1000);
+              
+            
+            // For removing the number. After the certain time.
+            setTimeout(() => {
+               randomNum.innerHTML = "";
+            },5000)
+        }, timerCounting);
+
+
+        // For displaying the timer on our web page. Using the setInterval() method.
+        let timerCount = 1;
+        let timerValue =  4;
+        let settingTimer =   setInterval(() => {
+
+            // Displaying the timer section.
+            count.style.backgroundColor = "#2f3c2f"
+            timerValue -= timerCount;
+
+            // For displaying in the console.
+            console.log(timerValue);
+
+            // For displaying on our web page.
+            count.innerHTML = timerValue;
+
+            // Setting the condition to stop the Interval.
+            if (timerValue === 0) {
+
+                count.style.backgroundColor = "transparent";
+
+                // Using clearInterval() method to stop the setInterval() method.
+                clearInterval(settingTimer);
+
+                // For clearing the count section.
+                count.innerHTML = "";
+            }
+         },1000)     
+    })
+</script>
+</html>
